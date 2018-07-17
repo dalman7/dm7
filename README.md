@@ -10,3 +10,7 @@
 * Gradle 4.9
 
 ### Package Structure
+* TBD
+
+### How to Run 
+* `./gradlew bootRun` 
