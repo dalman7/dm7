@@ -1,0 +1,99 @@
+description = """ 
+본 프로젝트는 최초로 웹프로젝트를 구성한 것으로 추후에 아주 많이 변경될 수 있음.
+Spring Cloud 환경으로 변경될 예정이라면 Multi-Project 나 Multi-Module 로 바뀔 수도 있지만 일단 추후 고민해 보겠음
+필요한 사항들은 가급적 많은 주석을 달도록 하겠음. 
+
+@author doubleseven
+@version 1.0 
+"""
+
+/***********************************************************************************************************************
+ * 빌드 스크립트 세팅 부분
+ **********************************************************************************************************************/
+buildscript {
+    ext {
+        springBootVersion = '2.0.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+/***********************************************************************************************************************
+ * 플러그인 정보들
+ **********************************************************************************************************************/
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+/***********************************************************************************************************************
+ * 프로젝트 기본 정보들
+ **********************************************************************************************************************/
+group = 'kr.co.dm7.blackpink'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+/***********************************************************************************************************************
+ * Repository 정보 (현재 기본 설정 그대로 뒀고 나중에 필요한 순간 추가하겠음.
+ **********************************************************************************************************************/
+repositories {
+    mavenCentral()
+}
+
+/***********************************************************************************************************************
+ * 톰캣 대신에 다른 WAS 를 사용할 것이기 때문에 Dependency 에 걸린 모든 Tomcat 의존성을 제거한다
+ **********************************************************************************************************************/
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+}
+
+/***********************************************************************************************************************
+ * 프로젝트의 라이브러리 Dependency
+ **********************************************************************************************************************/
+dependencies {
+
+    // was 는 tomcat 대신 undertow 로 설정해뒀음 나중에 필요하면 바꿀 수 있응께
+    compile('org.springframework.boot:spring-boot-starter-undertow')
+
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+
+    // mongodb 설정은 필요할때 다시 고민하겠음
+    // compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    // compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+
+    // template engine 은 tymeleaf 로 우선 결정하고 mustache 는 또 추후 고려하겠음
+    // compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+    // webflux 는 reactive 기반으로 갈때 고민하겠음... 일단은 web 으로 감
+    // compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.springframework.boot:spring-boot-starter-security')
+
+    // mybatis 설정할때 고민하겠음.
+    // compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
+    runtime('org.springframework.boot:spring-boot-devtools')
+
+    // mysql 은 RDBMS 붙일때 고민하겠음
+    // runtime('mysql:mysql-connector-java')
+
+    compileOnly('org.projectlombok:lombok')
+
+    // test
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
+
+    // mongodb 설정할때 고민하겠음
+    // testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+
+    // reactor 사용시 고민하겠음
+    // testCompile('io.projectreactor:reactor-test')
+
+}
