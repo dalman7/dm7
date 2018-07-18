@@ -7,6 +7,11 @@ spring:
     # 배너설정 : 서버 뜰때 예쁘게 예쁘게
     location: classpath:logo.txt
 
+#  security:
+#    user:
+#      name: dm7
+#      password: dm7
+
   application:
     name: dm7
 
