@@ -7,7 +7,7 @@
 ### Technical Stack
 * Java 8
 * Spring Boot 2.0
-* Gradle 4.9
+* Gradle 4.8
 
 ### Package Structure
 * TBD
