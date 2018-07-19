@@ -40,12 +40,6 @@
  -->
 	<dependencies>
 
-		<!-- was 는 tomcat 대신 undertow 로 설정해뒀음 나중에 필요하면 바꿀 수 있응께 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-undertow</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -82,11 +76,22 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		-->
+
+        <!-- was 는 tomcat 대신 undertow 로 설정해뒀음 나중에 필요하면 바꿀 수 있응께 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
-
 
 		<!-- security 는 oauth2 설정시 다시 고민하겠음 -->
 		<!--
