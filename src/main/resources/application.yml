@@ -38,3 +38,19 @@ server:
   port: ${PORT:8080}
 
 ---
+
+
+
+########################################################################################################################
+# mybatis 사용을 위한 설정
+# 아래 URL 참고할것
+#  - http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
+########################################################################################################################
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: false
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  # config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: kr.pe.md8.blackpink.domain
