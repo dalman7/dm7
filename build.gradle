@@ -83,6 +83,8 @@ dependencies {
 
     // mysql 은 RDBMS 붙일때 고민하겠음
     // runtime('mysql:mysql-connector-java')
+    runtime('com.h2database:h2')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
 
     compileOnly('org.projectlombok:lombok')
 

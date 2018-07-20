@@ -7,6 +7,20 @@ spring:
     # 배너설정 : 서버 뜰때 예쁘게 예쁘게
     location: classpath:logo.txt
 
+  # h2 콘솔 활성화 ( http://localhost:포트번호/h2-console 로 접근 가능)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # datasource 설정 (H2 로 했으며 추후 mysql 같은 RDBMS 로 바꿀 예정임
+  datasource:
+    url: jdbc:h2:mem:dm7;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    data-username: sa
+    password: dm7_no_only_doubleseven
+    driverClassName: org.h2.Driver
+
 #  security:
 #    user:
 #      name: dm7
