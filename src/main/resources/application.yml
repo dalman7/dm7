@@ -21,6 +21,21 @@ spring:
     password: dm7_no_only_doubleseven
     driverClassName: org.h2.Driver
 
+  security:
+    oauth2:
+      client:
+        registration:
+#          facebook:
+#            client-id: 681655205504975
+#            client-secret: 7a37be5aa42a483202c94744a5747065
+          google:
+            client-id: test
+            client-secret: test_secret
+#          naver:
+#            client-id:
+#            client-secret:
+
+
 #  security:
 #    user:
 #      name: dm7
@@ -29,6 +44,22 @@ spring:
   application:
     name: dm7
 
+---
+########################################################################################################################
+# oauth2 설정을 위한 custom properties
+########################################################################################################################
+oauth2:
+  social:
+    registration:
+      - facebook:
+        client-id: 681655205504975
+        client-secret: 7a37be5aa42a483202c94744a5747065
+      - google:
+        client-id:
+        client-secret:
+#      - naver:
+#        client-id:
+#        client-secret:
 ---
 
 ########################################################################################################################
