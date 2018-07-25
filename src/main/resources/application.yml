@@ -7,6 +7,20 @@ spring:
     # 배너설정 : 서버 뜰때 예쁘게 예쁘게
     location: classpath:logo.txt
 
+  # h2 콘솔 활성화 ( http://localhost:포트번호/h2-console 로 접근 가능)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # datasource 설정 (H2 로 했으며 추후 mysql 같은 RDBMS 로 바꿀 예정임
+  datasource:
+    url: jdbc:h2:mem:dm7;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    data-username: sa
+    password: dm7_no_only_doubleseven
+    driverClassName: org.h2.Driver
+
 #  security:
 #    user:
 #      name: dm7
@@ -60,3 +74,18 @@ spring:
 ########################################################################################################################
 #  data:
 #    mongodb:
+
+--
+########################################################################################################################
+# mybatis 사용을 위한 설정
+# 아래 URL 참고할것
+#  - http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
+########################################################################################################################
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: false
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  # config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: kr.pe.md8.blackpink.domain

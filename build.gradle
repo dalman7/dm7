@@ -64,7 +64,6 @@ dependencies {
 	// 뭔지 모르는건 일단 주석처리.. 주석좀 달아주쇼.. ㅋ
     //compile('org.springframework.boot:spring-boot-starter-actuator')
 
-
     // 테스트용으로 embedded mongo 를 붙였으며 나중에 mongo 적용시 다시 체크하겠음.
     compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
     compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
@@ -83,12 +82,14 @@ dependencies {
 
     // compile('org.springframework.boot:spring-boot-starter-security')
 
-    // mybatis 설정할때 고민하겠음.
-    // compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
     runtime('org.springframework.boot:spring-boot-devtools')
 
-    // mysql 은 RDBMS 붙일때 고민하겠음
+    // mysql
     runtime('mysql:mysql-connector-java')
+    // runtime('mysql:mysql-connector-java')
+    runtime('com.h2database:h2')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
 
     compileOnly('org.projectlombok:lombok')
 
