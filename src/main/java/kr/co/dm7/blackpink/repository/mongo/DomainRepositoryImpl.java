@@ -22,7 +22,7 @@ public class DomainRepositoryImpl implements DomainRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public long updateName(String name, boolean display) {
+    public long updateDisplay(String name, boolean display) {
         UpdateResult result = mongoTemplate.updateMulti(
                 new Query(Criteria.where("name").is(name)),
                 new Update() {{

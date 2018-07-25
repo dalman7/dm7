@@ -9,5 +9,5 @@ package kr.co.dm7.blackpink.repository.mongo;
  */
 public interface DomainRepositoryCustom {
 
-    long updateName(String name, boolean display);
+    long updateDisplay(String name, boolean display);
 }
