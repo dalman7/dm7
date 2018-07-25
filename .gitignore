@@ -1,6 +1,9 @@
 ### Global ###
 .gradle
 /build/
+/bin/
+/target/
+/out/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

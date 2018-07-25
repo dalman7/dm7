@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -18,7 +19,8 @@ import java.util.Arrays;
  * @version 1.0
  */
 @Component
-public class InitData implements ApplicationRunner {
+@Order(1)
+public class InitMemoryData implements ApplicationRunner {
 
     @Setter(onMethod = @__({@Autowired}))
     private UserMapRepository userMapRepository;
