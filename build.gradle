@@ -59,25 +59,27 @@ configurations {
 dependencies {
 
     // was 는 tomcat 대신 undertow 로 설정해뒀음 나중에 필요하면 바꿀 수 있응께
-    compile('org.springframework.boot:spring-boot-starter-undertow')
+    // compile('org.springframework.boot:spring-boot-starter-undertow')
 
 	// 뭔지 모르는건 일단 주석처리.. 주석좀 달아주쇼.. ㅋ
     //compile('org.springframework.boot:spring-boot-starter-actuator')
 
-    // mongodb 설정은 필요할때 다시 고민하겠음
+
+    // 테스트용으로 embedded mongo 를 붙였으며 나중에 mongo 적용시 다시 체크하겠음.
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+    compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
     // compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-    // compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
 
     // template engine 은 tymeleaf 로 우선 결정하고 mustache 는 또 추후 고려하겠음
     // compile('org.springframework.boot:spring-boot-starter-mustache')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
-	//JPA
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	
+    //JPA
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
     // webflux 는 reactive 기반으로 갈때 고민하겠음... 일단은 web 으로 감
-    // compile('org.springframework.boot:spring-boot-starter-webflux')
-    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    //compile('org.springframework.boot:spring-boot-starter-web')
 
     // compile('org.springframework.boot:spring-boot-starter-security')
 
@@ -95,7 +97,7 @@ dependencies {
     // testCompile('org.springframework.security:spring-security-test')
 
     // mongodb 설정할때 고민하겠음
-    // testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+    testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
 
     // reactor 사용시 고민하겠음
     // testCompile('io.projectreactor:reactor-test')
