@@ -1,30 +1,33 @@
 package kr.co.dm7.blackpink.web.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.dm7.blackpink.domain.Subscriber;
 import kr.co.dm7.blackpink.service.SubscriberService;
 import lombok.Setter;
 
-@RestController
+@Controller
 public class SubscriberController {
 
 	@Setter(onMethod = @__({@Autowired}))
 	private SubscriberService userService;
 		
 	@GetMapping("/subscribers")
-	public List<Subscriber> userList() {
+	public String userList(Model model) {
 		
-		return userService.getUsers();
+//		return userService.getUsers();
+		model.addAttribute("userList", userService.getUsers());
+		return "subslist";
 	}
+	
 	
 	@GetMapping("/subscriber/{id}")
 	public ResponseEntity<Subscriber> userList(@PathVariable Long id) {
