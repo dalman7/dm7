@@ -1,6 +1,6 @@
 package kr.co.dm7.blackpink.repository.mapper;
 
-import kr.co.dm7.blackpink.domain.User;
+import kr.co.dm7.blackpink.domain.Subscriber;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -8,11 +8,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserXMLMapper {
 
-    void insert(User user);
+    void insert(Subscriber user);
 
-    User select(String id);
+    Subscriber select(String id);
 
-    User selectUserByname(String name);
+    Subscriber selectUserByname(String name);
 
-    Integer update(User user);
+    Integer update(Subscriber user);
+
+    void delete(String id);
 }
