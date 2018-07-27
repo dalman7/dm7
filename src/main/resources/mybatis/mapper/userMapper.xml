@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="kr.co.dm7.blackpink.repository.mapper.UserXMLMapper">
+    <resultMap id="userResultMap" type="kr.co.dm7.blackpink.domain.Subscriber">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="nick" property="nick"/>
+    </resultMap>
+
+    <sql id="ALL_FIELD">
+        id, name, nick
+    </sql>
+
+    <select id="select" resultMap="userResultMap" parameterType="string">
+        SELECT
+        <include refid="ALL_FIELD"/>
+        FROM tb_user
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectUserByname" resultType="kr.co.dm7.blackpink.domain.Subscriber">
+        SELECT
+        <include refid="ALL_FIELD"/>
+        FROM tb_user
+        WHERE name = #{name}
+    </select>
+
+    <insert id="insert" parameterType="kr.co.dm7.blackpink.domain.Subscriber">
+        INSERT INTO tb_user (id, name, nick)
+        VALUES (#{id}, #{name}, #{nick})
+    </insert>
+
+    <update id="update" parameterType="kr.co.dm7.blackpink.domain.Subscriber">
+        UPDATE tb_user set
+        name = #{name},
+        nick = #{nick}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="string">
+        Delete from tb_user
+        where id = #{id}
+    </delete>
+
+</mapper>

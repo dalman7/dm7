@@ -17,7 +17,7 @@ public interface DomainRepository extends ReactiveMongoRepository<Domain, String
 
     Mono<Domain> findByNameAndDisplay(String name, boolean display);
 
-    Flux<Domain> findByUrl(String url);
+    Flux<Domain> findByUrlIsStartingWith(String url);
 
     //Mongo JSON query
     @Query("{name:'?0'}")
