@@ -20,33 +20,33 @@ server:
 
 ---
 
-########################################################################################################################
-# JPA
-########################################################################################################################
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: update    # create, update, create-drop, none 등의 옵션이 있습니다.
-                          # create: 기존테이블 삭제 후 다시 생성
-                          # update: 변경된 부분만 반영
-                          # create-drop: create와 같으나 종료 시점에 테이블 DROP
-                          # none: 사용하지 않음
-    generate-ddl: false   # DDl 생성 시 데이터베이스 고유의 기능 사용여부
-    show-sql: true        # 실행되는 쿼리문 보여주기 여부
-    database: mysql       # 사용되는 데이터베이스(MariaDB는 없기 때문에 mysql로 지정)
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 테이블 생성시 엔진을 InnoDB 로 생성. 설정하지 않으면 myisam로 등록
-
----
-
-########################################################################################################################
-# MYSQL
-########################################################################################################################
-spring:
-  datasource:
-    username: sql12248426
-    password: eULaepVdzK
-    driver-class-name: com.mysql.jdbc.Driver
-    url:  jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12248426?useSSL=false
+#########################################################################################################################
+## JPA
+#########################################################################################################################
+#spring:
+#  jpa:
+#    hibernate:
+#      ddl-auto: update    # create, update, create-drop, none 등의 옵션이 있습니다.
+#                          # create: 기존테이블 삭제 후 다시 생성
+#                          # update: 변경된 부분만 반영
+#                          # create-drop: create와 같으나 종료 시점에 테이블 DROP
+#                          # none: 사용하지 않음
+#    generate-ddl: false   # DDl 생성 시 데이터베이스 고유의 기능 사용여부
+#    show-sql: true        # 실행되는 쿼리문 보여주기 여부
+#    database: mysql       # 사용되는 데이터베이스(MariaDB는 없기 때문에 mysql로 지정)
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 테이블 생성시 엔진을 InnoDB 로 생성. 설정하지 않으면 myisam로 등록
+#
+#---
+#
+#########################################################################################################################
+## MYSQL
+#########################################################################################################################
+#spring:
+#  datasource:
+#    username: sql12248426
+#    password: eULaepVdzK
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url:  jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12248426?useSSL=false
 
 ########################################################################################################################
 # H2 -> MySQL 로 변경되므로 주석으로 막아두겠음.
@@ -86,3 +86,15 @@ mybatis:
   # config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: kr.pe.md8.blackpink.domain
+
+---
+
+########################################################################################################################
+# spring security 설정
+#  - 일단 테스트용으로 아이디와 패스워드를 지정하겠음
+########################################################################################################################
+#spring:
+#  security:
+#    user:
+#      name: dm7
+#      password: dm7
