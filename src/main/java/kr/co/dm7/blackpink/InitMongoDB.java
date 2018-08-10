@@ -57,7 +57,7 @@ public class InitMongoDB implements ApplicationRunner {
                                 .firstName("종훈")
                                 .lastName("박")
                                 .password(passwordEncoder.encode("caleb940_pwd"))
-                                .roles(Collections.singletonList(Role.Admin))
+                                .roles(Arrays.asList(Role.ADMIN, Role.MANAGER))
                                 .build(),
                         MongoUser.builder()
                                 .email("apetoy94@naver.com")
@@ -65,7 +65,7 @@ public class InitMongoDB implements ApplicationRunner {
                                 .firstName("동민")
                                 .lastName("장")
                                 .password(passwordEncoder.encode("apetoy94_pwd"))
-                                .roles(Collections.singletonList(Role.Manager))
+                                .roles(Collections.singletonList(Role.MANAGER))
                                 .build(),
                         MongoUser.builder()
                                 .email("doubleseven@naver.com")
@@ -73,7 +73,7 @@ public class InitMongoDB implements ApplicationRunner {
                                 .firstName("현선")
                                 .lastName("임")
                                 .password(passwordEncoder.encode("doubleseven_pwd"))
-                                .roles(Collections.singletonList(Role.User))
+                                .roles(Collections.singletonList(Role.USER))
                                 .build()
                 )
         ).subscribe();
