@@ -19,53 +19,54 @@ import java.net.URI;
  * webflux 기반의 security 설정을 위해서 세팅한다.
  */
 @EnableWebFluxSecurity
-@EnableReactiveMethodSecurity
+// @EnableReactiveMethodSecurity
 public class WebFluxSecurityConfig {
 
-    /**
-     * path 와 method 에 대한 security 를 설정한다.
-     *
-     * @param http
-     * @return
-     */
-    @Bean
-    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        return http
-                //.csrf().disable()
-                .authorizeExchange()
-                .matchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                // user
-                .pathMatchers(HttpMethod.GET, "/user").permitAll()
-                .pathMatchers(HttpMethod.PUT, "/user").hasRole(Role.MANAGER.name())
-                .pathMatchers(HttpMethod.DELETE, "/user").hasRole(Role.MANAGER.name())
+//    /**
+//     * path 와 method 에 대한 security 를 설정한다.
+//     *
+//     * @param http
+//     * @return
+//     */
+//    @Bean
+//    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
+//        return http
+//                .csrf().disable()
+//                .authorizeExchange()
+//                .matchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+//                .pathMatchers("/", "userinfo").permitAll()
+//                // user
+//                .pathMatchers(HttpMethod.GET, "/user").permitAll()
+//                .pathMatchers(HttpMethod.PUT, "/user").hasRole(Role.MANAGER.name())
+//                .pathMatchers(HttpMethod.DELETE, "/user").hasRole(Role.MANAGER.name())
+//
+//                // domains
+//                .pathMatchers(HttpMethod.GET, "/domains").hasRole(Role.MANAGER.name())
+//
+//                .anyExchange().authenticated()
+//                .anyExchange().permitAll()
+//                .and()
+//                .httpBasic()
+//                .and()
+//                .formLogin()
+//                .and()
+////                .logout()
+////                .logoutSuccessHandler(logoutSuccessHandler())
+////                .and()
+//                .build();
+//    }
 
-                // domains
-                .pathMatchers(HttpMethod.GET, "/domains").hasRole(Role.MANAGER.name())
-
-                .anyExchange().authenticated()
-                //.anyExchange().permitAll()
-                .and()
-                .httpBasic()
-                .and()
-                .formLogin()
-                .and()
-                .logout()
-                .logoutSuccessHandler(logoutSuccessHandler())
-                .and()
-                .build();
-    }
-
-    /**
-     * 로그아웃을 위한 핸들러
-     *
-     * @return
-     */
-    @Bean
-    public ServerLogoutSuccessHandler logoutSuccessHandler() {
-        RedirectServerLogoutSuccessHandler logoutSuccessHandler = new RedirectServerLogoutSuccessHandler();
-        logoutSuccessHandler.setLogoutSuccessUrl(URI.create("/users"));
-        return logoutSuccessHandler;
-    }
+//    /**
+//     * 로그아웃을 위한 핸들러
+//     *
+//     * @return
+//     */
+//    @Bean
+//    public ServerLogoutSuccessHandler logoutSuccessHandler() {
+//        RedirectServerLogoutSuccessHandler logoutSuccessHandler = new RedirectServerLogoutSuccessHandler();
+//        logoutSuccessHandler.setLogoutSuccessUrl(URI.create("/users"));
+//        return logoutSuccessHandler;
+//    }
 
     /**
      * 패스워드 및 기타 암호화가 필요한 사항들에 대해서 인코딩을 하기 위한 Bean 이다

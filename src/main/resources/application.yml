@@ -89,12 +89,39 @@ mybatis:
 
 ---
 
+
 ########################################################################################################################
-# spring security 설정
-#  - 일단 테스트용으로 아이디와 패스워드를 지정하겠음
+# Thymleaf 설정
+#  - 쓸지 안쓸지 모르겠지만 일단 oauth 설정때문에 해 두겠음.
 ########################################################################################################################
-#spring:
-#  security:
-#    user:
-#      name: dm7
-#      password: dm7
+spring:
+  thymeleaf:
+    cache: false
+
+---
+
+########################################################################################################################
+# spring security 및 oauth2 설정
+########################################################################################################################
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 788509745586-kt0v2ism2tvolve63epdigr13ercjdt2.apps.googleusercontent.com
+            client-secret: D8OOnwixJM-mTxfFtWstg_MP
+#          facebook:
+#            client-id: TBD
+#            client-secret: TBD
+#          naver:
+#            client-id: TBD
+#            client-secret: TBD
+
+---
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
