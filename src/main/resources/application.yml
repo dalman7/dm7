@@ -43,10 +43,10 @@ spring:
 ########################################################################################################################
 spring:
   datasource:
-    username: sql12248426
-    password: eULaepVdzK
+    username: dm7_user
+    password: Wkwmdsksms:94
     driver-class-name: com.mysql.jdbc.Driver
-    url:  jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12248426?useSSL=false
+    url:  jdbc:mysql://106.10.43.247:3306/webdb?useSSL=false
 
 ########################################################################################################################
 # H2 -> MySQL 로 변경되므로 주석으로 막아두겠음.
